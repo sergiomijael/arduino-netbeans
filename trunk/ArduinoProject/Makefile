@@ -1,5 +1,8 @@
-# Configure os valores de COM_PORT e ARDUINO_BASE_DIR. Retire os comentários das bibliotecas que utilizar.
-# Baseado em: http://playground.arduino.cc/Code/Netbeans e http://www.kerrywong.com/2010/05/16/arduino-development-using-netbeans/
+# Arduino NetBeans plugin (http://code.google.com/p/arduino-netbeans)
+# ------------------------------------------------------------------------------
+# Configure the values of COM_PORT, ARDUINO_BASE_DIR and platform (Uno or Mega). 
+# Uncomment the declarations of the libraries that you want to use.
+# Based on: http://playground.arduino.cc/Code/Netbeans
 
 COM_PORT = COM23
 ARDUINO_VERSION = 103
@@ -25,6 +28,7 @@ INCLUDE = -c -g \
 -I${ARDUINO_LIB_DIR}/Ethernet \
 -I${ARDUINO_LIB_DIR}/Ethernet/utility \
 -I${ARDUINO_LIB_DIR}/Firmata \
+-I${ARDUINO_LIB_DIR}/GSMSHIELD \
 -I${ARDUINO_LIB_DIR}/LiquidCrystal \
 -I${ARDUINO_LIB_DIR}/MemoryFree \
 -I${ARDUINO_LIB_DIR}/RTClib \
@@ -96,7 +100,7 @@ build: .build-post
 	${CMD_AVR_AR} lib/USBCore.cpp.o 
 	${CMD_AVR_AR} lib/WMath.cpp.o 
 	${CMD_AVR_AR} lib/WString.cpp.o 
-	
+
 # SPI:
 #	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/SPI/SPI.cpp -o lib/SPI.cpp.o 
 #	${CMD_AVR_AR} lib/SPI.cpp.o 
@@ -126,6 +130,10 @@ build: .build-post
 # Servo:
 #	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/Servo/Servo.cpp -o lib/Servo.cpp.o
 #	${CMD_AVR_AR} lib/Servo.cpp.o 
+
+# SoftwareSerial:
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/SoftwareSerial/SoftwareSerial.cpp -o lib/SoftwareSerial.cpp.o 
+#	${CMD_AVR_AR} lib/SoftwareSerial.cpp.o
 	
 # Wire:
 #	${CMD_AVR_GCC} ${ARDUINO_LIB_DIR}/Wire/utility/twi.c -o lib/twi.c.o
@@ -133,17 +141,37 @@ build: .build-post
 #	${CMD_AVR_AR} lib/twi.c.o 
 #	${CMD_AVR_AR} lib/Wire.cpp.o 
 
-# MemoryFree:
+# MemoryFree (http://playground.arduino.cc/Code/AvailableMemory):
 #	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/MemoryFree/MemoryFree.cpp -o lib/MemoryFree.cpp.o
 #	${CMD_AVR_AR} lib/MemoryFree.cpp.o 
 	
-# RTClib:
+# RTClib (https://github.com/adafruit/RTClib):
 #	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/RTClib/RTClib.cpp -o lib/RTClib.cpp.o
 #	${CMD_AVR_AR} lib/RTClib.cpp.o 
 	
-# VirtualWire:
+# VirtualWire: (http://www.open.com.au/mikem/arduino/VirtualWire)
 #	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/VirtualWire/VirtualWire.cpp -o lib/VirtualWire.cpp.o
-#	${CMD_AVR_AR} lib/VirtualWire.cpp.o 	
+#	${CMD_AVR_AR} lib/VirtualWire.cpp.o	
+
+# GSMSHIELD: (https://code.google.com/p/gsm-shield-arduino)
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/call.cpp -o lib/call.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/gps.cpp -o lib/gps.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/GSM.cpp -o lib/GSM.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/HWSerial.cpp -o lib/HWSerial.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/inetGSM.cpp -o lib/inetGSM.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/LOG.cpp -o lib/LOG.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/SIM900.cpp -o lib/SIM900.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/sms.cpp -o lib/sms.cpp.o
+#	${CMD_AVR_GPP} ${ARDUINO_LIB_DIR}/GSMSHIELD/WideTextFinder.cpp -o lib/WideTextFinder.cpp.o
+#	${CMD_AVR_AR} lib/call.cpp.o
+#	${CMD_AVR_AR} lib/gps.cpp.o
+#	${CMD_AVR_AR} lib/GSM.cpp.o
+#	${CMD_AVR_AR} lib/HWSerial.cpp.o
+#	${CMD_AVR_AR} lib/inetGSM.cpp.o
+#	${CMD_AVR_AR} lib/LOG.cpp.o
+#	${CMD_AVR_AR} lib/SIM900.cpp.o
+#	${CMD_AVR_AR} lib/sms.cpp.o
+#	${CMD_AVR_AR} lib/WideTextFinder.cpp.o
 	
 .build-post: .build-impl	
 	avr-objcopy -O ihex ${CND_ARTIFACT_PATH_${CONF}} ${CND_ARTIFACT_PATH_${CONF}}.hex

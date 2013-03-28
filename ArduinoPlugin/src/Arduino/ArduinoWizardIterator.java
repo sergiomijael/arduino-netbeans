@@ -54,13 +54,13 @@ public class ArduinoWizardIterator implements WizardDescriptor./*Progress*/Insta
 
     private WizardDescriptor.Panel[] createPanels() {
         return new WizardDescriptor.Panel[]{
-                    new ArduinoWizardPanel(),};
+            new ArduinoWizardPanel(),};
     }
 
     private String[] createSteps() {
         return new String[]{
-                    NbBundle.getMessage(ArduinoWizardIterator.class, "LBL_CreateProjectStep")
-                };
+            NbBundle.getMessage(ArduinoWizardIterator.class, "LBL_CreateProjectStep")
+        };
     }
 
     public Set/*<FileObject>*/ instantiate(/*ProgressHandle handle*/) throws IOException {

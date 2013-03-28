@@ -49,13 +49,13 @@ public class ArduinoPanelVisual extends JPanel implements DocumentListener {
         createdFolderTextField = new javax.swing.JTextField();
 
         projectNameLabel.setLabelFor(projectNameTextField);
-        org.openide.awt.Mnemonics.setLocalizedText(projectNameLabel, "Project &Name:");
+        org.openide.awt.Mnemonics.setLocalizedText(projectNameLabel, org.openide.util.NbBundle.getMessage(ArduinoPanelVisual.class, "ArduinoPanelVisual.projectNameLabel.text")); // NOI18N
 
         projectLocationLabel.setLabelFor(projectLocationTextField);
-        org.openide.awt.Mnemonics.setLocalizedText(projectLocationLabel, "Project &Location:");
+        org.openide.awt.Mnemonics.setLocalizedText(projectLocationLabel, org.openide.util.NbBundle.getMessage(ArduinoPanelVisual.class, "ArduinoPanelVisual.projectLocationLabel.text")); // NOI18N
 
-        org.openide.awt.Mnemonics.setLocalizedText(browseButton, "Br&owse...");
-        browseButton.setActionCommand("BROWSE");
+        org.openide.awt.Mnemonics.setLocalizedText(browseButton, org.openide.util.NbBundle.getMessage(ArduinoPanelVisual.class, "ArduinoPanelVisual.browseButton.text")); // NOI18N
+        browseButton.setActionCommand(org.openide.util.NbBundle.getMessage(ArduinoPanelVisual.class, "ArduinoPanelVisual.browseButton.actionCommand")); // NOI18N
         browseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseButtonActionPerformed(evt);
@@ -63,7 +63,7 @@ public class ArduinoPanelVisual extends JPanel implements DocumentListener {
         });
 
         createdFolderLabel.setLabelFor(createdFolderTextField);
-        org.openide.awt.Mnemonics.setLocalizedText(createdFolderLabel, "Project &Folder:");
+        org.openide.awt.Mnemonics.setLocalizedText(createdFolderLabel, org.openide.util.NbBundle.getMessage(ArduinoPanelVisual.class, "ArduinoPanelVisual.createdFolderLabel.text")); // NOI18N
 
         createdFolderTextField.setEditable(false);
 

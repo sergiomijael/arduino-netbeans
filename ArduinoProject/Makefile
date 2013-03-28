@@ -2,11 +2,13 @@
 # ------------------------------------------------------------------------------
 # Configure the values of COM_PORT, ARDUINO_BASE_DIR and platform (Uno or Mega). 
 # Uncomment the declarations of the libraries that you want to use.
+# For Arduino Duemilanove you must change the BAUD_RATE to 57600 bps.
 # Based on: http://playground.arduino.cc/Code/Netbeans
 
 COM_PORT = COM23
-ARDUINO_VERSION = 103
-ARDUINO_BASE_DIR = c:/programs/arduino-1.0.3
+BAUD_RATE = 115200
+ARDUINO_VERSION = 104
+ARDUINO_BASE_DIR = c:/programs/arduino-1.0.4
 ARDUINO_CORE_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/cores/arduino
 ARDUINO_LIB_DIR = ${ARDUINO_BASE_DIR}/libraries
 
@@ -19,6 +21,9 @@ ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/standard
 #ARDUINO_MODEL = atmega2560
 #ARDUINO_PROGRAMMER = wiring
 #ARDUINO_PINS_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/variants/mega
+
+# Arduino Duemilanove:
+#BAUD_RATE = 57600
 
 INCLUDE = -c -g \
 -I${ARDUINO_CORE_DIR} \
@@ -63,6 +68,7 @@ CCADMIN=CCadmin
 build: .build-post
 
 .build-pre:
+	mkdir -p lib
 # Core:
 	${CMD_AVR_GCC} ${ARDUINO_CORE_DIR}/WInterrupts.c -o lib/WInterrupts.c.o 
 	${CMD_AVR_GCC} ${ARDUINO_CORE_DIR}/wiring.c -o lib/wiring.c.o 
@@ -179,7 +185,7 @@ build: .build-post
 
 #upload: .build-post
 upload: 
-	avrdude -C ${ARDUINO_BASE_DIR}/hardware/tools/avr/etc/avrdude.conf -v -p${ARDUINO_MODEL} -c${ARDUINO_PROGRAMMER} -P ${COM_PORT} -b115200 -D -Uflash:w:${CND_ARTIFACT_PATH_${CONF}}.hex:i
+	avrdude -C ${ARDUINO_BASE_DIR}/hardware/tools/avr/etc/avrdude.conf -v -p${ARDUINO_MODEL} -c${ARDUINO_PROGRAMMER} -P ${COM_PORT} -b${BAUD_RATE} -D -Uflash:w:${CND_ARTIFACT_PATH_${CONF}}.hex:i
 
 
 # clean

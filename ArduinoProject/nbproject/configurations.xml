@@ -31,7 +31,7 @@
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>default</compilerSet>
+        <compilerSet>Arduino|WinAVR</compilerSet>
       </toolsSet>
       <compileType>
         <cTool>
@@ -47,7 +47,7 @@
           <commandLine>${FLAGS_GPP}</commandLine>
         </ccTool>
         <linkerTool>
-          <commandlineTool>avr-gcc.exe</commandlineTool>
+          <commandlineTool>avr-gcc</commandlineTool>
           <commandLine>${FLAGS_LINKER}</commandLine>
         </linkerTool>
       </compileType>

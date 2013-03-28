@@ -14,11 +14,11 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=avr-gcc.exe
-CCC=avr-g++.exe
-CXX=avr-g++.exe
+CC=avr-gcc
+CCC=avr-g++
+CXX=avr-g++
 FC=gfortran
-AS=avr-as.exe
+AS=avr-as
 
 # Macros
 CND_PLATFORM=Arduino-Windows
@@ -60,7 +60,7 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arduinoproject.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	avr-gcc.exe -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arduinoproject ${OBJECTFILES} ${LDLIBSOPTIONS} ${FLAGS_LINKER}
+	avr-gcc -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/arduinoproject ${OBJECTFILES} ${LDLIBSOPTIONS} ${FLAGS_LINKER}
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

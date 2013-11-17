@@ -1,1 +1,1 @@
-Arduino NetBeans Plugin is opensource, hosted at http://code.google.com/p/arduino-netbeans/
+Arduino NetBeans Plugin is opensource, hosted at http://arduino-netbeans.googlecode.com

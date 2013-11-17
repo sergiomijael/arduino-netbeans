@@ -1,4 +1,4 @@
-# Arduino NetBeans plugin (http://code.google.com/p/arduino-netbeans)
+# Arduino NetBeans plugin (http://arduino-netbeans.googlecode.com)
 # ------------------------------------------------------------------------------
 # Configure the values of COM_PORT, ARDUINO_BASE_DIR and platform (Uno or Mega). 
 # Uncomment the declarations of the libraries that you want to use.
@@ -7,8 +7,8 @@
 
 COM_PORT = COM23
 BAUD_RATE = 115200
-ARDUINO_VERSION = 104
-ARDUINO_BASE_DIR = c:/programs/arduino-1.0.4
+ARDUINO_VERSION = 105
+ARDUINO_BASE_DIR = c:/programs/arduino-1.0.5
 ARDUINO_CORE_DIR = ${ARDUINO_BASE_DIR}/hardware/arduino/cores/arduino
 ARDUINO_LIB_DIR = ${ARDUINO_BASE_DIR}/libraries
 LIB_CORE_DIR = lib/core
